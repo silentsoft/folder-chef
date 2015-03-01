@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="54.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.silentsoft.folderchef.view.load.LoadViewerController">
+   <children>
+      <ProgressBar fx:id="loadingBar" prefHeight="30.0" prefWidth="450.0" progress="0.0" />
+      <Label fx:id="lblCount" alignment="CENTER" layoutY="7.0" prefHeight="15.0" prefWidth="450.0" text="(0/0)" textAlignment="CENTER" />
+      <Button fx:id="btnDone" disable="true" layoutX="357.0" layoutY="30.0" mnemonicParsing="false" onMouseReleased="#btnDone_OnMouseReleased" prefHeight="23.0" prefWidth="93.0" text="Done" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="128.0" prefWidth="454.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+			<Image url="@folder-chef.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="143.0" layoutY="32.0" text="Folder Chef">
+         <font>
+            <Font name="Verdana" size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="110.0" text="Copyright (c) 2015 Silentsoft All rights reserved." />
+   </children>
+</AnchorPane>

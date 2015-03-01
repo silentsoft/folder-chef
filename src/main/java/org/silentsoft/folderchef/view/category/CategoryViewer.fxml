@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import org.silentsoft.folderchef.component.tree.TreeViewWithItems?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.silentsoft.folderchef.view.category.CategoryViewerController">
+   <children>
+      <TitledPane animated="false" collapsible="false" prefHeight="650.0" prefWidth="800.0" text="Directory Tree">
+         <content>
+            <ScrollPane fx:id="scrPane" prefHeight="200.0" prefWidth="200.0">
+               <content>
+                  <TreeViewWithItems fx:id="tree" prefHeight="604.0" prefWidth="798.0" />
+               </content>
+            </ScrollPane>
+         </content>
+      </TitledPane>
+      <Button fx:id="btnPrev" layoutY="627.0" mnemonicParsing="false" onMouseReleased="#btnPrev_OnMouseReleased" prefHeight="23.0" prefWidth="400.0" text="&lt;&lt; P R E V" />
+      <Button fx:id="btnNext" layoutX="400.0" layoutY="627.0" mnemonicParsing="false" onMouseReleased="#btnNext_OnMouseReleased" prefHeight="23.0" prefWidth="400.0" text="N E X T &gt;&gt;" />
+   </children>
+</AnchorPane>

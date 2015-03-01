@@ -1,0 +1,87 @@
+1.0.0-SNAPSHOT
+ - created GUI {OptionViewer, KeywordViewer, LevelViewer, CategoryViewer}
+ - using ETL pattern {KeywordExtractor, LevelTransformer, CategoryLoader}
+
+1.1.0-SNAPSHOT
+ - created GUI {LoadViewer}
+ - display load progress.
+
+1.2.0-SNAPSHOT
+ - display file full path when mouse hover at CategoryViewer.
+ - execute file that mouse double clicked at CategoryViewer.
+
+1.3.0-SNAPSHOT
+ - changed source package architects to object oriented.
+ - changed JTextField to AutoJTextField at LevelViewer.
+ 
+1.4.0-SNAPSHOT
+ - display each keywords relation by combo box at LevelViewer.
+
+1.5.0-SNAPSHOT
+ - display whole keyword set relation by combo box at LevelViewer.
+ - display each viewer loading progress
+ - UI Maximize
+ - show tree popup when user searched and do drag and drop to level tree
+ - when adding the keyword to not included keyword set's directory, make keyword set and try to put keyword.
+ - fixed bugs
+   {
+  	.combo box resource share
+  	.disappear when double click
+   }
+   
+1.6.0
+ - add option that none keyword matching file copy or move
+ - remove option that extract from keyword set file
+ # set color to keyword list already used
+ - fixed bugs
+   {
+    .same file name override
+   	.mismatch between real count and pre count.
+   }
+   
+2.0.0
+ - change project name 'categorizer' -> 'sweeper' and convert to fx project
+ # program auto update
+ - keyword '(', ')' extract algorithm modified
+ - directory tree save and load function modified
+ - divide core source to 'silentsoft-core' project
+ - fixed bugs
+   {
+    .minor graphic issues
+    .drag and drop errors
+   }
+   
+2.1.0
+ - infinity viewer user interface modified to Fx indicator
+ - show infinity viewer also during leveling
+
+2.1.1
+ - fixed bugs
+   {
+    .directory rename issues
+    .minor tree issues
+   }
+   
+2.1.2
+ - added Sweeper icon
+ - fixed bugs
+   {
+    .load numbering issues
+   }
+   
+2.1.3
+ - close search result viewer when stage change level viewer to category viewer
+ - change event asynch to synch when viewer loading event fire
+ - fixed bugs
+   {
+    .search result drag and drop issues
+    .viewer loading issues
+   }
+   
+3.0.0
+ - change project name 'sweeper' -> 'folder-chef'
+ - create intro viewer to display when application startup
+ - fixed bugs
+   {
+    .adding duplicate issues
+   }

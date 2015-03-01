@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import org.silentsoft.core.component.text.AutoCompleteTextField?>
+<?import org.silentsoft.folderchef.component.tree.TreeViewWithItems?>
+
+<AnchorPane prefHeight="688.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.silentsoft.folderchef.view.level.LevelViewerController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="800.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="mntmLoad" mnemonicParsing="false" onAction="#mntmLoad_OnAction" text="Load" />
+                  <MenuItem fx:id="mntmSave" mnemonicParsing="false" onAction="#mntmSave_OnAction" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="mntmAbout" mnemonicParsing="false" onAction="#mntmAbout_OnAction" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TitledPane animated="false" collapsible="false" layoutY="25.0" prefHeight="580.0" prefWidth="570.0" text="Directory Tree">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Category" />
+                  <TextField fx:id="txtCategory" layoutX="80.0" layoutY="10.0" onAction="#txtCategory_OnAction" prefHeight="23.0" prefWidth="174.0" />
+                  <Button fx:id="btnAdd" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" onMouseReleased="#btnAdd_OnMouseReleased" text="Add" />
+                  <Button fx:id="btnMakeKeySet" layoutX="312.0" layoutY="10.0" mnemonicParsing="false" onMouseReleased="#btnMakeKeySet_OnMouseReleased" text="Make Keyord Set" />
+                  <Button fx:id="btnRename" layoutX="431.0" layoutY="10.0" mnemonicParsing="false" onMouseReleased="#btnRename_OnMouseReleased" text="Rename" />
+                  <Button fx:id="btnDelete" layoutX="500.0" layoutY="10.0" mnemonicParsing="false" onMouseReleased="#btnDelete_OnMouseReleased" text="Delete" />
+                  <ScrollPane fx:id="scrPaneTree" fitToHeight="true" fitToWidth="true" layoutX="7.0" layoutY="40.0" prefHeight="510.0" prefWidth="553.0">
+                     <content>
+                        <TreeViewWithItems fx:id="tree" prefHeight="508.0" prefWidth="551.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutX="570.0" layoutY="25.0" prefHeight="580.0" prefWidth="230.0" text="Keyword List">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Order by" />
+                  <RadioButton fx:id="rdbtnKeyword" layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onAction="#rdbtnKeyword_OnAction" text="Keyword">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="KeywordOrder" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rdbtnCount" layoutX="157.0" layoutY="14.0" mnemonicParsing="false" onAction="#rdbtnCount_OnAction" selected="true" text="Count" toggleGroup="$KeywordOrder" />
+                  <AutoCompleteTextField fx:id="txtKeyword" layoutX="14.0" layoutY="40.0" onAction="#txtKeyword_OnAction" />
+                  <Button fx:id="btnSearch" layoutX="158.0" layoutY="40.0" mnemonicParsing="false" onMouseReleased="#btnSearch_OnMouseReleased" text="Search" />
+                  <ScrollPane fx:id="scrPaneList" layoutX="8.0" layoutY="69.0" prefHeight="480.0" prefWidth="212.0">
+                     <content>
+                        <ListView fx:id="list" prefHeight="478.0" prefWidth="210.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutY="605.0" prefHeight="60.0" prefWidth="800.0" text="Query Option">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="chkExcludeNoneItem" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#chkExcludeNoneItem_OnAction" selected="true" text="Exclude none keyword matched item" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button fx:id="btnPrev" layoutY="665.0" mnemonicParsing="false" onMouseReleased="#btnPrev_OnMouseReleased" prefHeight="23.0" prefWidth="400.0" text="&lt;&lt; P R E V" />
+      <Button fx:id="btnNext" layoutX="400.0" layoutY="665.0" mnemonicParsing="false" onMouseReleased="#btnNext_OnMouseReleased" prefHeight="23.0" prefWidth="400.0" text="N E X T &gt;&gt;" />
+   </children>
+</AnchorPane>
