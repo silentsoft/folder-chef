@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="254.0" prefWidth="282.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.silentsoft.folderchef.view.option.OptionViewerController">
+   <children>
+      <TitledPane animated="false" collapsible="false" prefHeight="107.0" prefWidth="282.0" text="Extract">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="104.0" prefWidth="280.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Target" />
+                  <Label layoutX="14.0" layoutY="56.0" text="Extensions" />
+                  <TextField fx:id="txtExtractTarget" editable="false" layoutX="91.0" layoutY="10.0" onMouseEntered="#txtExtractTarget_OnMouseEntered" onMouseReleased="#txtExtractTarget_OnMouseReleased" prefHeight="23.0" prefWidth="175.0" promptText="example) D:\G-MES" />
+                  <TextField fx:id="txtExtractExtensions" layoutX="91.0" layoutY="52.0" prefHeight="23.0" prefWidth="175.0" promptText="example) gul,doc,docx,ppt" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutY="107.0" prefHeight="107.0" prefWidth="282.0" text="Load">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="56.0" text="Destination" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Type" />
+                  <TextField fx:id="txtLoadDestination" editable="false" layoutX="91.0" layoutY="52.0" onMouseEntered="#txtLoadDestination_OnMouseEntered" onMouseReleased="#txtLoadDestination_OnMouseReleased" prefHeight="23.0" prefWidth="175.0" promptText="example) D:\G-MES_NEW" />
+                  <ComboBox fx:id="cmbLoadType" layoutX="91.0" layoutY="10.0" prefHeight="23.0" prefWidth="175.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button fx:id="btnStart" layoutY="214.0" mnemonicParsing="false" onMouseReleased="#btnStart_OnMouseReleased" prefHeight="40.0" prefWidth="282.0" text="S T A R T" />
+   </children>
+</AnchorPane>
