@@ -90,9 +90,9 @@ public class CategoryViewerController {
 		
 		String masthead = "Are you sure to use [" + option + "] option ?\r\n";
 			   masthead+= "\r\n";
-			   masthead+= "Simulated " + (fileCount-excludeCount) + " files will " + option.toLowerCase() + " to " + loadDestination;
+			   masthead+= (fileCount-excludeCount) + " files that Folder Chef shows in the previous page will be " + option.toLowerCase() + " to " + loadDestination;
 			   
-		String message = "Extract target [" + extractTarget + "] has " + fileCount + " files for [" + extractExtensions + "]";
+		String message = "There are " + fileCount + " files in target folders, " + "[" + extractTarget + "]";
 		if (MessageBox.showConfirmWithMasthead(FolderChef.getStage(), masthead, message) == Dialog.ACTION_YES) {
 			EventHandler.callEvent(CategoryViewer.class, BizConst.EVENT_VIEW_LOAD, false);
 			//categoryViewer.dispose();

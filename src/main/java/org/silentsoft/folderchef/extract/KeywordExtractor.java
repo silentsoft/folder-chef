@@ -145,6 +145,14 @@ public class KeywordExtractor extends Extractor {
 				keywordSet.add(entry.getKey() + CommonConst.VERTICAL_BAR_CHAR + entry.getValue());
 			}
 			
+			if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY))) {
+				Files.createDirectory(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY));
+			}
+			
+			if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_KEYWORD_SET))) {
+				Files.createFile(Paths.get(System.getProperty("user.dir") + BizConst.PATH_KEYWORD_SET));
+			}
+			
 			Files.write(Paths.get(System.getProperty("user.dir") + BizConst.PATH_KEYWORD_SET), keywordSet, StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			LOGGER.error("I cannot making keywords !", e);
