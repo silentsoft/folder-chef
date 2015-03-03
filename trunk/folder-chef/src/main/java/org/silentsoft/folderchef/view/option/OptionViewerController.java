@@ -2,6 +2,8 @@ package org.silentsoft.folderchef.view.option;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -109,6 +111,7 @@ public class OptionViewerController implements Initializable {
 		if (isValidated()) {
 			EventHandler.callEvent(OptionViewer.class, BizConst.EVENT_VIEW_INFINITY, false);
 			
+			saveOptionToINI();
 			saveOptionToSharedMemory();
 			
 			EventHandler.callEvent(OptionViewer.class, BizConst.EVENT_EXTRACT_EXECUTE);
@@ -148,18 +151,6 @@ public class OptionViewerController implements Initializable {
 		return true;
 	}
 	
-	private void saveOptionToSharedMemory() {
-		String extractTarget = txtExtractTarget.getText();
-		String extractExtensions = txtExtractExtensions.getText();
-		String loadDestination = txtLoadDestination.getText();
-		String loadType = cmbLoadType.getValue();
-		
-		SharedMemory.getDataMap().put(BizConst.KEY_EXTRACT_TARGET, extractTarget);
-		SharedMemory.getDataMap().put(BizConst.KEY_EXTRACT_EXTENSIONS, extractExtensions);
-		SharedMemory.getDataMap().put(BizConst.KEY_LOAD_DESTINATION, loadDestination);
-		SharedMemory.getDataMap().put(BizConst.KEY_LOAD_TYPE, loadType);
-	}
-	
 	public void loadConfigurationFromINI() {
 		INIUtil configINI = new INIUtil(System.getProperty("user.dir") + BizConst.PATH_CONFIG);
 		if (configINI.isExists()) {
@@ -192,6 +183,20 @@ public class OptionViewerController implements Initializable {
 			}
 		} else {
 			LOGGER.error("Configuration file is not exists ! <{}>", new Object[]{System.getProperty("user.dir") + BizConst.PATH_CONFIG});
+			
+			try {
+				LOGGER.info("try to create configuration file");
+				
+				if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY))) {
+					Files.createDirectory(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY));
+				}
+				
+				if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONFIG))) {
+					Files.createFile(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONFIG));
+				}
+			} catch (Exception e) {
+				LOGGER.error("I cannot making config !", e);
+			}
 		}
 	}
 	
@@ -205,5 +210,47 @@ public class OptionViewerController implements Initializable {
 		txtExtractExtensions.setText(extractExtensions);
 		txtLoadDestination.setText(loadDestination);
 		cmbLoadType.setValue(loadType);
+	}
+	
+	private void saveOptionToINI() {
+		INIUtil configINI = new INIUtil(System.getProperty("user.dir") + BizConst.PATH_CONFIG);
+		if (!configINI.isExists()) {
+			LOGGER.error("Configuration file is not exists ! <{}>", new Object[]{System.getProperty("user.dir") + BizConst.PATH_CONFIG});
+			
+			try {
+				LOGGER.info("try to create configuration file");
+				
+				if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY))) {
+					Files.createDirectory(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONF_DIRECTORY));
+				}
+				
+				if (!Files.exists(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONFIG))) {
+					Files.createFile(Paths.get(System.getProperty("user.dir") + BizConst.PATH_CONFIG));
+				}
+			} catch (Exception e) {
+				LOGGER.error("I cannot making config !", e);
+			}
+		}
+		
+		try {
+			configINI.setData(BizConst.INI_SECTION_EXTRACT, BizConst.INI_EXTRACT_TARGET, txtExtractTarget.getText());
+			configINI.setData(BizConst.INI_SECTION_EXTRACT, BizConst.INI_EXTRACT_EXTENSIONS, txtExtractExtensions.getText());
+			configINI.setData(BizConst.INI_SECTION_LOAD, BizConst.INI_LOAD_TYPE, cmbLoadType.getValue());
+			configINI.setData(BizConst.INI_SECTION_LOAD, BizConst.INI_LOAD_DESTINATION, txtLoadDestination.getText());
+		} catch (Exception e) {
+			LOGGER.error("I got catch an exception !", e);
+		}
+	}
+	
+	private void saveOptionToSharedMemory() {
+		String extractTarget = txtExtractTarget.getText();
+		String extractExtensions = txtExtractExtensions.getText();
+		String loadDestination = txtLoadDestination.getText();
+		String loadType = cmbLoadType.getValue();
+		
+		SharedMemory.getDataMap().put(BizConst.KEY_EXTRACT_TARGET, extractTarget);
+		SharedMemory.getDataMap().put(BizConst.KEY_EXTRACT_EXTENSIONS, extractExtensions);
+		SharedMemory.getDataMap().put(BizConst.KEY_LOAD_DESTINATION, loadDestination);
+		SharedMemory.getDataMap().put(BizConst.KEY_LOAD_TYPE, loadType);
 	}
 }
