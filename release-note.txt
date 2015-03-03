@@ -85,3 +85,7 @@
    {
     .adding duplicate issues
    }
+   
+3.0.1
+ - when if not exists configuration, auto make config ini file and keyword set dat file
+ - auto save configuration when start button clicked at option viewer

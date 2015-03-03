@@ -4,8 +4,9 @@ import java.io.File;
 
 public class BizConst {
 
-	public static final String PATH_CONFIG = File.separator + "conf" + File.separator + "config.ini";
-	public static final String PATH_KEYWORD_SET = File.separator + "conf" + File.separator + "KeywordSet.dat";
+	public static final String PATH_CONF_DIRECTORY = File.separator + "conf";
+	public static final String PATH_CONFIG = PATH_CONF_DIRECTORY + File.separator + "config.ini";
+	public static final String PATH_KEYWORD_SET = PATH_CONF_DIRECTORY + File.separator + "KeywordSet.dat";
 	
 	public static final int    IDX_KEYSET_KEYWORD = 0;
 	public static final int    IDX_KEYSET_COUNT   = 1;

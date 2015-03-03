@@ -222,7 +222,6 @@ public class FolderChef extends Application implements EventListener {
 	        	SharedMemory.getDataMap().put("con", configLoadOption);
 	        	optionViewer = new OptionViewer();
 
-	        	stage.initStyle(StageStyle.DECORATED);
 	        	stage.setScene(new Scene(optionViewer.getOptionViewer(), 282,254));
 	        	stage.centerOnScreen();
 	    		stage.show();

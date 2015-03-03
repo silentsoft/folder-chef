@@ -196,7 +196,7 @@ public class LevelViewerController implements EventListener {
 	
 	@FXML
 	private void mntmAbout_OnAction() {
-		MessageBox.showAbout(FolderChef.getStage(), "Folder Chef 3.0.0", "VOC Contact : silentsoft@naver.com");
+		MessageBox.showAbout(FolderChef.getStage(), "Folder Chef 3.0.1", "VOC Contact : silentsoft@naver.com");
 	}
 	
 	@FXML
@@ -461,7 +461,7 @@ public class LevelViewerController implements EventListener {
 		SharedMemory.getDataMap().put(BizConst.KEY_TRANSFORM_ROOT, tree.getRoot());
 		SharedMemory.getDataMap().put(BizConst.KEY_TRANSFORM_ROOT_LIST, ((ObservableList<CategoryNode>)tree.getItems()));
 		
-		EventHandler.callEvent(LevelViewer.class, BizConst.EVENT_TRANSFORM_EXECUTE);
+		EventHandler.callEvent(LevelViewer.class, BizConst.EVENT_TRANSFORM_EXECUTE, false);
 	}
 	
 	private int getNodeCountByProperty(CategoryNode node, Property property) {

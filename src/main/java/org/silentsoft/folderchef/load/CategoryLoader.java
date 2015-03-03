@@ -110,6 +110,7 @@ public class CategoryLoader extends Loader {
 		}
 		
 		SharedMemory.getDataMap().put(BizConst.KEY_LOAD_FILE_COUNT_FINISH, true);
+		EventHandler.callEvent(CategoryLoader.class, BizConst.EVENT_UPDATE_LOAD_PROGRESS, false);
 	}
 
 	private void loadingByKeywords(String fullPath, String fileName, String[] keywords, String loadDestination, String loadType) {

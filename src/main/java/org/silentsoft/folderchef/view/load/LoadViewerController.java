@@ -45,6 +45,8 @@ public class LoadViewerController implements EventListener {
 	
 	private synchronized void onEventUpdateLoadProgress() {
 		boolean loadFinish = ObjectUtil.toBoolean(SharedMemory.getDataMap().get(BizConst.KEY_LOAD_FILE_COUNT_FINISH));
+		System.out.println(loadFinish);
+		
 		int totalFileCount = ObjectUtil.toInt(SharedMemory.getDataMap().get(BizConst.KEY_LOAD_FILE_COUNT_PRE));
 		int excludeFileCount = ObjectUtil.toInt(SharedMemory.getDataMap().get(BizConst.KEY_LOAD_FILE_COUNT_EXCLUDE));
 		
