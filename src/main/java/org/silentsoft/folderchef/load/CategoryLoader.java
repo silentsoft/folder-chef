@@ -151,7 +151,7 @@ public class CategoryLoader extends Loader {
 											 + CommonConst.UNDER_BAR + "L".concat(orgLastModifiedTime)
 //											 + CommonConst.UNDER_BAR + "A".concat(orgLastAccessTime)
 											 + CommonConst.BRACE_CLOSE
-											 + CommonConst.DOT + FileUtil.getExt(fileName);
+											 + CommonConst.DOT + FileUtil.getExtension(fileName);
 					if (!orgFile.renameTo(new File(orgSequentialPath))) {
 						LOGGER.error("Cannot rename to sequentialPath ! <{}> to <{}>", new Object[]{target, orgSequentialPath});
 					}
@@ -170,7 +170,7 @@ public class CategoryLoader extends Loader {
 						   + CommonConst.UNDER_BAR + "L".concat(tarLastModifiedTime)
 //						   + CommonConst.UNDER_BAR + "A".concat(tarLastAccessTime)
 						   + CommonConst.BRACE_CLOSE
-						   + CommonConst.DOT + FileUtil.getExt(fileName);
+						   + CommonConst.DOT + FileUtil.getExtension(fileName);
 				}
 				
 				// Copy or Move the file
