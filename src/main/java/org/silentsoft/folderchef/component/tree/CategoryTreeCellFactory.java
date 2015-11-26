@@ -128,7 +128,7 @@ public class CategoryTreeCellFactory extends TreeCell<CategoryNode> {
 							if (searchTreeItemToMove != null) {
 								if (newParent.getProperty() == Property.KeywordSet) {
 									if (newParent.isExistsInsideSameCategoryNode(searchTreeItemToMove.getValue())) {
-										MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "target node already exists " + searchTreeItemToMove.getValue().getName());
+										MessageBox.showError(FolderChef.getStage(), "target node already exists " + searchTreeItemToMove.getValue().getName());
 									} else {
 										searchTreeItemToMove.getParent().getChildren().remove(searchTreeItemToMove);
 										
@@ -137,7 +137,7 @@ public class CategoryTreeCellFactory extends TreeCell<CategoryNode> {
 										parentTree.refresh();
 									}
 								} else {
-									MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot add keyword to " + newParent.getProperty().toString());
+									MessageBox.showError(FolderChef.getStage(), "Cannot add keyword to " + newParent.getProperty().toString());
 								}
 							}
 						}
@@ -186,10 +186,10 @@ public class CategoryTreeCellFactory extends TreeCell<CategoryNode> {
 								
 								parentTree.refresh();
 							} else {
-								MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "target node already exists " + moveTargetNode.getName());
+								MessageBox.showError(FolderChef.getStage(), "target node already exists " + moveTargetNode.getName());
 							}
 						} else {
-							MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(),
+							MessageBox.showError(FolderChef.getStage(),
 									"Cannot add " + categoryTreeItemToMove.getValue().getProperty().toString() + " to " + newParent.getProperty().toString());
 						}
 						

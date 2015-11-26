@@ -15,12 +15,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import org.apache.commons.lang.StringUtils;
 import org.silentsoft.core.component.messagebox.MessageBox;
-import org.silentsoft.core.event.EventHandler;
 import org.silentsoft.core.util.ObjectUtil;
 import org.silentsoft.folderchef.component.model.Keyword;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.folderchef.main.FolderChef;
+import org.silentsoft.io.event.EventHandler;
 
 public class KeywordViewerController {
 
@@ -77,7 +77,7 @@ public class KeywordViewerController {
 			EventHandler.callEvent(KeywordViewer.class, BizConst.EVENT_VIEW_LEVEL, false);
 //			keywordViewer.dispose();
 		} else {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
+			MessageBox.showError(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
 		}
 		
 		//TODO : Call Event "EVENT_VIEW_LEVEL"

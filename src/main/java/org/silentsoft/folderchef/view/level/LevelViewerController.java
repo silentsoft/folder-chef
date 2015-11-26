@@ -35,8 +35,6 @@ import org.silentsoft.core.CommonConst;
 import org.silentsoft.core.component.messagebox.MessageBox;
 import org.silentsoft.core.component.text.AutoCompleteTextField;
 import org.silentsoft.core.component.tree.TreeIterator;
-import org.silentsoft.core.event.EventHandler;
-import org.silentsoft.core.event.EventListener;
 import org.silentsoft.core.util.MapUtil;
 import org.silentsoft.core.util.ObjectUtil;
 import org.silentsoft.folderchef.component.model.Category;
@@ -49,6 +47,8 @@ import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.folderchef.main.FolderChef;
 import org.silentsoft.folderchef.view.option.OptionViewer;
+import org.silentsoft.io.event.EventHandler;
+import org.silentsoft.io.event.EventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -146,7 +146,7 @@ public class LevelViewerController implements EventListener {
 				EventHandler.callEvent(LevelViewer.class, BizConst.EVENT_VIEW_CATEGORY, false);
 //				levelViewer.dispose();
 			} else {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
+				MessageBox.showError(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
 			}
 		}
 	}
@@ -196,7 +196,7 @@ public class LevelViewerController implements EventListener {
 	
 	@FXML
 	private void mntmAbout_OnAction() {
-		MessageBox.showAbout(FolderChef.getStage(), "Folder Chef 3.0.1", "VOC Contact : silentsoft@naver.com");
+		MessageBox.showInformation(FolderChef.getStage(), "Folder Chef 3.0.1", "VOC Contact : silentsoft@naver.com");
 	}
 	
 	@FXML
@@ -215,7 +215,7 @@ public class LevelViewerController implements EventListener {
 				while (treeIterator.hasNext()) {
 					CategoryNode treeCategoryNode = treeIterator.next();
 					if (treeCategoryNode.getProperty() == Property.Directory && treeCategoryNode.getName().equals(txtCategory.getText())) {
-						MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "There is exists same category !");
+						MessageBox.showError(FolderChef.getStage(), "There is exists same category !");
 						return;
 					}
 				}
@@ -228,7 +228,7 @@ public class LevelViewerController implements EventListener {
 					while (treeIterator.hasNext()) {
 						CategoryNode treeCategoryNode = treeIterator.next().getValue();
 						if (treeCategoryNode.getProperty() == Property.Directory && treeCategoryNode.getName().equals(txtCategory.getText())) {
-							MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "There is exists same category !");
+							MessageBox.showError(FolderChef.getStage(), "There is exists same category !");
 							return;
 						}
 					}
@@ -236,7 +236,7 @@ public class LevelViewerController implements EventListener {
 					tree.findNode(categoryNode).getChildren().add(target.getValue());
 					tree.refresh();
 				} else {
-					MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot add category to " + categoryNode.getProperty().toString());
+					MessageBox.showError(FolderChef.getStage(), "Cannot add category to " + categoryNode.getProperty().toString());
 					return;
 				}
 			}
@@ -260,7 +260,7 @@ public class LevelViewerController implements EventListener {
 				tree.findNode(categoryNode).getChildren().add(target);
 				tree.refresh();
 			} else {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot add KeywordSet to " + categoryNode.getProperty().toString());
+				MessageBox.showError(FolderChef.getStage(), "Cannot add KeywordSet to " + categoryNode.getProperty().toString());
 				return null;
 			}
 		}
@@ -273,10 +273,10 @@ public class LevelViewerController implements EventListener {
 		if (isPossibleCategoryName(txtCategory.getText())) {
 			TreeItem<CategoryNode> node = tree.getSelectionModel().getSelectedItem();
 			if (node == null) {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Please select category");
+				MessageBox.showError(FolderChef.getStage(), "Please select category");
 				return;
 			} else if (node == tree.getRoot()) {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot rename the root");
+				MessageBox.showError(FolderChef.getStage(), "Cannot rename the root");
 				return;
 			}
 			
@@ -285,7 +285,7 @@ public class LevelViewerController implements EventListener {
 				renameNode(categoryNode, txtCategory.getText());
 				tree.refresh();
 			} else {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot rename to " + categoryNode.getProperty().toString());
+				MessageBox.showError(FolderChef.getStage(), "Cannot rename to " + categoryNode.getProperty().toString());
 				return;
 			}
 		}
@@ -295,10 +295,10 @@ public class LevelViewerController implements EventListener {
 	private void btnDelete_OnMouseReleased() {
 		TreeItem<CategoryNode> node = tree.getSelectionModel().getSelectedItem();
 		if (node == null) {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Please select item");
+			MessageBox.showError(FolderChef.getStage(), "Please select item");
 			return;
 		} else if (node == tree.getRoot()) {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot delete the root");
+			MessageBox.showError(FolderChef.getStage(), "Cannot delete the root");
 			return;
 		}
 		
@@ -362,7 +362,7 @@ public class LevelViewerController implements EventListener {
 			SharedMemory.getDataMap().put(BizConst.KEY_SEARCH_RESULT, searchResult);
 			EventHandler.callEvent(LevelViewer.class, BizConst.EVENT_VIEW_SEARCH_RESULT, false);
 		} else {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Please type the keyword !");
+			MessageBox.showError(FolderChef.getStage(), "Please type the keyword !");
 			return;
 		}
 	}
@@ -371,7 +371,7 @@ public class LevelViewerController implements EventListener {
 		if (event.getClickCount() >= CommonConst.MOUSE_DOUBLE_CLICK) {
 			TreeItem<CategoryNode> node = tree.getSelectionModel().getSelectedItem();
 			if (node == null) {
-				MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot add keyword to empty space !");
+				MessageBox.showError(FolderChef.getStage(), "Cannot add keyword to empty space !");
 				return;
 			} else {
 				//Only can add to KeywordSet. Not Directory or Keyword directly.
@@ -403,7 +403,7 @@ public class LevelViewerController implements EventListener {
 				
 				if (categoryNode.getProperty() == Property.KeywordSet) {
 					if (categoryNode.isExistsInsideSameCategoryNode(target.getValue())) {
-						MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Selected keyword is already exists !");
+						MessageBox.showError(FolderChef.getStage(), "Selected keyword is already exists !");
 						return;
 					}
 					
@@ -417,7 +417,7 @@ public class LevelViewerController implements EventListener {
 						} else {
 							keysetNode = getNodeByProperty(categoryNode, Property.KeywordSet);
 							if (keysetNode.isExistsInsideSameCategoryNode(target.getValue())) {
-								MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Selected keyword is already exists !");
+								MessageBox.showError(FolderChef.getStage(), "Selected keyword is already exists !");
 								return;
 							}
 						}
@@ -431,11 +431,11 @@ public class LevelViewerController implements EventListener {
 						
 						tree.refresh();
 					} else {
-						MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Select keyword set first !");
+						MessageBox.showError(FolderChef.getStage(), "Select keyword set first !");
 						return;
 					}
 				} else {
-					MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot add keyword to " + categoryNode.getProperty().toString());
+					MessageBox.showError(FolderChef.getStage(), "Cannot add keyword to " + categoryNode.getProperty().toString());
 					return;
 				}
 			}
@@ -575,17 +575,17 @@ public class LevelViewerController implements EventListener {
 			 (targetName.indexOf(CommonConst.BRACKET_ANGLE_OPEN) != -1) ||
 			 (targetName.indexOf(CommonConst.BRACKET_ANGLE_CLOSE) != -1) ||
 			 (targetName.indexOf(CommonConst.VERTICAL_BAR_CHAR) != -1)  ) {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot make category. please check special character !");
+			MessageBox.showError(FolderChef.getStage(), "Cannot make category. please check special character !");
 			return false;
 		}
 		
 		if (targetName.length() == 0) {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot make category. please check category name !");
+			MessageBox.showError(FolderChef.getStage(), "Cannot make category. please check category name !");
 			return false;
 		}
 		
 		if (targetName.length() >= CommonConst.MAX_DIRECTORY_LENGTH) {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), "Cannot make category. please check category length !");
+			MessageBox.showError(FolderChef.getStage(), "Cannot make category. please check category length !");
 			return false;
 		}
 		
