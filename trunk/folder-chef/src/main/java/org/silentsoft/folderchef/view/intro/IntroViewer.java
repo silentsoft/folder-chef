@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import org.silentsoft.core.event.EventHandler;
 import org.silentsoft.folderchef.core.BizConst;
+import org.silentsoft.io.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

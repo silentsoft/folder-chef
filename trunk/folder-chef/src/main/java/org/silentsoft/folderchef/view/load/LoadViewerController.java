@@ -1,10 +1,10 @@
 package org.silentsoft.folderchef.view.load;
 
-import org.silentsoft.core.event.EventHandler;
-import org.silentsoft.core.event.EventListener;
 import org.silentsoft.core.util.ObjectUtil;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
+import org.silentsoft.io.event.EventHandler;
+import org.silentsoft.io.event.EventListener;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;

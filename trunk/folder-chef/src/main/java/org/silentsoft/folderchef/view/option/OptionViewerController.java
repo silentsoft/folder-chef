@@ -22,11 +22,11 @@ import org.controlsfx.dialog.Dialogs;
 import org.silentsoft.core.CommonConst;
 import org.silentsoft.core.util.INIUtil;
 import org.silentsoft.core.component.messagebox.MessageBox;
-import org.silentsoft.core.event.EventHandler;
 import org.silentsoft.core.util.ObjectUtil;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.folderchef.main.FolderChef;
+import org.silentsoft.io.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -117,7 +117,7 @@ public class OptionViewerController implements Initializable {
 			EventHandler.callEvent(OptionViewer.class, BizConst.EVENT_EXTRACT_EXECUTE);
 			//optionViewer.dispose();
 		} else {
-			MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
+			MessageBox.showError(FolderChef.getStage(), ObjectUtil.toString(SharedMemory.getDataMap().get(BizConst.KEY_MESSAGE)));
 		}
 	}
 	

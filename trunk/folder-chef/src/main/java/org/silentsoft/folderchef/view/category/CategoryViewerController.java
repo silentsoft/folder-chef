@@ -31,9 +31,8 @@ import org.silentsoft.core.CommonConst;
 import org.silentsoft.core.component.messagebox.MessageBox;
 import org.silentsoft.core.component.tree.TreeIterator;
 import org.silentsoft.core.component.tree.TreePath;
-import org.silentsoft.core.event.EventHandler;
 import org.silentsoft.core.util.ObjectUtil;
-import org.silentsoft.core.util.SysUtil;
+import org.silentsoft.core.util.SystemUtil;
 import org.silentsoft.folderchef.component.model.Category;
 import org.silentsoft.folderchef.component.model.Category.Property;
 import org.silentsoft.folderchef.component.tree.CategoryNode;
@@ -42,6 +41,7 @@ import org.silentsoft.folderchef.component.tree.TreeViewWithItems;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.folderchef.main.FolderChef;
+import org.silentsoft.io.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -93,7 +93,7 @@ public class CategoryViewerController {
 			   masthead+= (fileCount-excludeCount) + " files that Folder Chef shows in the previous page will be " + option.toLowerCase() + " to " + loadDestination;
 			   
 		String message = "There are " + fileCount + " files in target folders, " + "[" + extractTarget + "]";
-		if (MessageBox.showConfirmWithMasthead(FolderChef.getStage(), masthead, message) == Dialog.ACTION_YES) {
+		if (MessageBox.showConfirm(FolderChef.getStage(), masthead, message) == Dialog.ACTION_YES) {
 			EventHandler.callEvent(CategoryViewer.class, BizConst.EVENT_VIEW_LOAD, false);
 			//categoryViewer.dispose();
 		}
@@ -117,10 +117,10 @@ public class CategoryViewerController {
 				if (category.getProperty() == Property.File) {
 					try {
 						if (Files.exists(Paths.get(category.getValue()))) {
-							SysUtil.runCommand(category.getValue());
+							SystemUtil.runCommand(category.getValue());
 						} else {
 							LOGGER.error("File <{}> not found !", new Object[]{category.getValue()});
-							MessageBox.showErrorTypeVaildationFailure(FolderChef.getStage(), String.format("File <{%s}> not found !", category.getValue()));
+							MessageBox.showError(FolderChef.getStage(), String.format("File <{%s}> not found !", category.getValue()));
 						}
 					} catch (Exception e) {
 						LOGGER.error("File execute failure !", e);
