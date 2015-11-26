@@ -1,7 +1,7 @@
 package org.silentsoft.folderchef.core;
 
-import org.silentsoft.core.data.DataMap;
-import org.silentsoft.core.data.DataSet;
+import org.silentsoft.io.data.DataMap;
+import org.silentsoft.io.data.DataSet;
 
 public final class SharedMemory {
 	private static DataMap dataMap = new DataMap();
