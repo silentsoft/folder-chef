@@ -32,9 +32,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.silentsoft.core.CommonConst;
-import org.silentsoft.core.component.messagebox.MessageBox;
-import org.silentsoft.core.component.text.AutoCompleteTextField;
-import org.silentsoft.core.component.tree.TreeIterator;
 import org.silentsoft.core.util.MapUtil;
 import org.silentsoft.core.util.ObjectUtil;
 import org.silentsoft.folderchef.component.model.Category;
@@ -49,6 +46,9 @@ import org.silentsoft.folderchef.main.FolderChef;
 import org.silentsoft.folderchef.view.option.OptionViewer;
 import org.silentsoft.io.event.EventHandler;
 import org.silentsoft.io.event.EventListener;
+import org.silentsoft.ui.component.messagebox.MessageBox;
+import org.silentsoft.ui.component.text.AutoCompleteTextField;
+import org.silentsoft.ui.component.tree.TreeIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
