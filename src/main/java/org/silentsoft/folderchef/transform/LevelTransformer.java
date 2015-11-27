@@ -6,13 +6,13 @@ import java.util.TreeSet;
 import javafx.scene.control.TreeItem;
 
 import org.silentsoft.core.CommonConst;
-import org.silentsoft.core.component.tree.TreeIterator;
-import org.silentsoft.core.component.tree.TreePath;
 import org.silentsoft.folderchef.component.model.Category;
 import org.silentsoft.folderchef.component.model.Category.Property;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.io.event.EventHandler;
+import org.silentsoft.ui.component.tree.TreeIterator;
+import org.silentsoft.ui.component.tree.TreePath;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

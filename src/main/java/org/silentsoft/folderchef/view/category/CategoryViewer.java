@@ -3,8 +3,8 @@ package org.silentsoft.folderchef.view.category;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-import org.silentsoft.core.component.messagebox.MessageBox;
 import org.silentsoft.folderchef.main.FolderChef;
+import org.silentsoft.ui.component.messagebox.MessageBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
