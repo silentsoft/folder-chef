@@ -2,10 +2,10 @@ package org.silentsoft.folderchef.component.tree;
 
 import java.io.FileInputStream;
 
-import org.silentsoft.core.component.tree.TreeIterator;
 import org.silentsoft.folderchef.component.model.Category;
 import org.silentsoft.folderchef.component.model.Category.Property;
 import org.silentsoft.folderchef.core.SharedMemory;
+import org.silentsoft.ui.component.tree.TreeIterator;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;

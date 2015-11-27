@@ -28,8 +28,6 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 
 import org.silentsoft.core.CommonConst;
-import org.silentsoft.core.component.messagebox.MessageBox;
-import org.silentsoft.core.component.tree.TreeIterator;
 import org.silentsoft.core.util.ArrayUtil;
 import org.silentsoft.core.util.MapUtil;
 import org.silentsoft.core.util.ObjectUtil;
@@ -39,6 +37,8 @@ import org.silentsoft.folderchef.component.model.Category.Property;
 import org.silentsoft.folderchef.core.BizConst;
 import org.silentsoft.folderchef.core.SharedMemory;
 import org.silentsoft.folderchef.main.FolderChef;
+import org.silentsoft.ui.component.messagebox.MessageBox;
+import org.silentsoft.ui.component.tree.TreeIterator;
 
 public class CategoryTreeCellFactory extends TreeCell<CategoryNode> {
 
